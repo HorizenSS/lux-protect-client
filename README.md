@@ -36,21 +36,34 @@ A powerful real-time geolocation alert platform delivering instant notifications
 
 ## 🚀 Quick Start
 #### Clone repository
-`git clone https://github.com/HorizenSS/lux-protect-client.git`
+git clone https://github.com/HorizenSS/lux-protect-client.git
 
 #### Install dependencies
-`npm install`
+npm install
 
 #### Start development
-`ng serve`
+ng serve
 
 ## 🛠️ **Tech Stack**
-* 
-_* Frontend:_ Angular 15
-_* UI Components:_ PrimeNG
-_* Maps:_ Leaflet.js
-_* State_ Management: RxJS
-_* Real-time:_ WebSocket/STOMP
+* Frontend: Angular 15
+* UI Components: PrimeNG
+* Maps: Leaflet.js
+* State Management: RxJS
+* Real-time: WebSocket/STOMP
+
+### 🔒 **Security Features**
+* JWT Authentication
+* Role-based Access Control
+* WebSocket Security
+* XSS Protection
+* CSRF Guards
+
+### 🌟 **Performance**
+* Lazy Loading
+* Optimized WebSocket
+* Image Compression
+* Smart Caching
+
 
 ## 📱 **Core Features Demo**
 
@@ -102,19 +115,6 @@ mapboxToken: 'your_token'
 
 ##### Linting
 `ng lint`
-
-### 🔒 **Security Features**
-* JWT Authentication
-* Role-based Access Control
-* WebSocket Security
-* XSS Protection
-* CSRF Guards
-
-### 🌟 **Performance**
-* Lazy Loading
-* Optimized WebSocket
-* Image Compression
-* Smart Caching
 
 ## 📚 **API Documentation**
 
