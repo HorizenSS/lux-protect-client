@@ -1,0 +1,276 @@
+
+.alert-map-container {
+  position: relative;
+  height: calc(100vh - 64px); // Adjust based on your layout
+  display: flex;
+  flex-direction: column;
+
+  .control-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 300px;
+
+    .search-section {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+
+      input {
+        flex: 1;
+      }
+    }
+  }
+
+  .map-container {
+    flex: 1;
+    width: 100%;
+  }
+
+  .legend-panel {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 200px;
+    z-index: 1000;
+
+    h3 {
+      margin: 0 0 10px 0;
+    }
+
+    .legend-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      i {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  .p-dialog {
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    .location-info {
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+
+    .dialog-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.alert-popup {
+  h3 {
+    margin: 0 0 8px 0;
+    color: #2196F3;
+  }
+
+  p {
+    margin: 4px 0;
+  }
+}
+.custom-div-icon {
+  background: none;
+  border: none;
+
+  i {
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+:host ::ng-deep {
+  .p-sidebar {
+    transition: transform 0.3s ease;
+  }
+}
+.sidebar-toggle {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  width: 36px;
+  height: 80px;
+  border-radius: 8px 0 0 8px;
+  background: #2196F3;
+  color: white;
+  border: none;
+  box-shadow: -4px 0 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    width: 42px;
+    background: #1976D2;
+    box-shadow: -6px 0 12px rgba(0,0,0,0.3);
+  }
+
+  // Bookmark-like protrusion
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: inherit;
+    border-radius: 4px 0 0 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: inherit;
+    border-radius: 0 0 0 4px;
+  }
+
+  i {
+    font-size: 1.2rem;
+    line-height: 80px;
+  }
+}
+
+:host ::ng-deep {
+    .form-container {
+      padding: 1.5rem;
+
+
+      .field {
+        margin-bottom: 1.5rem;
+
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-weight: 500;
+          color: #495057;
+        }
+
+        .p-selectbutton {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          width: 100%;
+
+          .p-button {
+            flex: 1;
+            min-width: calc(33.33% - 0.5rem);
+          }
+        }
+      }
+    }
+  }
+  .alert-details {
+    padding: 1.5rem;
+
+    h2 {
+      font-size: 1.5rem;
+      color: #2196F3;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 0.5rem;
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f0f0f0;
+
+      i {
+        width: 24px;
+        margin-right: 12px;
+        text-align: center;
+      }
+
+      span {
+        font-size: 0.95rem;
+      }
+    }
+
+    .description, .location {
+      margin-top: 1.5rem;
+
+      h3 {
+        font-size: 1.1rem;
+        color: #495057;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        line-height: 1.5;
+        color: #6c757d;
+      }
+    }
+
+    .actions {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+    }
+  }
+
+
+
+.form-container {
+  padding: 1.5rem;
+
+  .field {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #495057;
+    }
+  }
+}
+.custom-circle {
+  width: 1rem; /* Adjust the size */
+  height: 1rem; /* Adjust the size */
+  font-size: 1rem; /* Adjust icon size */
+}
+
+.custom-circle .p-button-icon {
+  font-size: 1rem; /* Ensure the icon scales properly */
+}
+
+

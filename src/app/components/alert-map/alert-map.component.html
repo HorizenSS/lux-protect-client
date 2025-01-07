@@ -1,0 +1,210 @@
+
+
+<p-toast position="top-right"></p-toast>
+<button
+  pButton
+  class="sidebar-toggle"
+  [icon]="display ? 'pi pi-angle-right' : 'pi pi-angle-left'"
+  (click)="toggleSidebar()"
+  *ngIf="isCreatingAlert || isEditing"
+></button>
+
+<p-sidebar
+  [(visible)]="display"
+  [position]="'right'"
+  [transitionOptions]="'300ms cubic-bezier(0, 0, 0.2, 1)'"
+  styleClass="p-sidebar-lg"
+  (onHide)="onSidebarHide()"
+>
+  <div *ngIf="isCreatingAlert || isEditing" class="form-container">
+    <h2>{{ isEditing ? 'Edit Alert' : 'Create New Alert' }}</h2>
+  <form [formGroup]="alertForm" (ngSubmit)="submitAlert()">
+    <div class="field">
+      <label for="title">Title</label>
+      <input id="title" type="text" pInputText formControlName="title" class="w-full">
+      <small class="p-error" *ngIf="title?.invalid && title?.touched">
+        Title is required (min 3 characters)
+      </small>
+    </div>
+
+    <div class="field">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        pInputTextarea
+        formControlName="description"
+        [rows]="3"
+        class="w-full"
+      ></textarea>
+      <small class="p-error" *ngIf="description?.invalid && description?.touched">
+        Description is required (min 10 characters)
+      </small>
+    </div>
+
+    <div class="field">
+      <div class="form-group">
+        <label for="alertType">Alert Type</label>
+        <p-selectButton
+          id="alertType"
+          [options]="alertTypeDropdownItems"
+          formControlName="type"
+          optionLabel="value"
+          optionValue="label">
+        </p-selectButton>
+        <small class="p-error" *ngIf="type?.invalid && type?.touched">
+          Alert type is required
+        </small>
+      </div>
+
+    </div>
+
+    <div class="field">
+      <label for="severity">Severity</label>
+      <p-selectButton
+        id="severity"
+        [options]="severityOptions"
+        formControlName="severity"
+        optionLabel="value"
+        optionValue="label"
+      ></p-selectButton>
+      <small class="p-error" *ngIf="severity?.invalid && severity?.touched">
+        Severity is required
+      </small>
+    </div>
+
+    <div class="location-info">
+      <p>Selected Location:</p>
+      <p>Lat: {{selectedPosition?.lat?.toFixed(6) || 'N/A'}}</p>
+      <p>Lng: {{selectedPosition?.lng?.toFixed(6) || 'N/A'}}</p>
+    </div>
+
+    <div class="dialog-footer">
+      <p-button
+        type="submit"
+        [label]="isEditing ? 'Update' : 'Submit'"
+        [disabled]="!alertForm.valid"
+      ></p-button>
+      <p-button
+        label="Cancel"
+        icon="pi pi-times"
+        (onClick)="resetForm()"
+        styleClass="p-button-danger"
+      ></p-button>
+    </div>
+  </form>
+  </div>
+    <div *ngIf="!isCreatingAlert && !isEditing && selectedAlert" class="alert-details">
+    <h2>{{selectedAlert.title}}</h2>
+
+    <div class="detail-row">
+      <i class="fas fa-clock"></i>
+      <span>{{selectedAlert.createdAt | date:'medium'}}</span>
+    </div>
+
+    <div class="detail-row">
+      <i [class]="getIconClass(selectedAlert.type)" [style.color]="getIconColor(selectedAlert.type)"></i>
+      <span>{{selectedAlert.type}}</span>
+    </div>
+
+    <div class="detail-row">
+      <i class="fas fa-exclamation-circle"></i>
+      <span>{{selectedAlert.severity}}</span>
+    </div>
+
+    <div class="description">
+      <h3>Description</h3>
+      <p>{{selectedAlert.description}}</p>
+    </div>
+
+    <div class="location">
+      <h3>Location</h3>
+      <p>Lat: {{selectedAlert.latitude | number:'1.6-6'}}</p>
+      <p>Lng: {{selectedAlert.longitude | number:'1.6-6'}}</p>
+    </div>
+
+      <div class="actions">
+        <p-button
+          *ngIf="canEdit(selectedAlert)"
+          icon="pi pi-pencil"
+          label="Edit"
+          (onClick)="startEditing(selectedAlert)"
+          styleClass="p-button-outlined p-button-info"
+        ></p-button>
+        <p-button
+          *ngIf="canEdit(selectedAlert)"
+          icon="pi pi-trash"
+          label="Delete"
+          (onClick)="deleteAlert(selectedAlert)"
+          styleClass="p-button-outlined p-button-danger"
+        ></p-button>
+        <p-button
+          icon="pi pi-times"
+          label="Close"
+          (onClick)="display = false"
+          styleClass="p-button-outlined"
+        ></p-button>
+      </div>
+  </div>
+</p-sidebar>
+
+<div class="alert-map-container">
+  <div class="control-panel">
+    <div class="search-section">
+      <span class="p-input-icon-right">
+        <i class="pi pi-search"></i>
+       <div class="search-bar">
+  <input
+    type="text"
+    pInputText
+    [(ngModel)]="searchAddress"
+    placeholder="Search location..."
+    (input)="searchLocation()"
+  />
+  <ul *ngIf="searchResults.length" class="search-results">
+    <li *ngFor="let result of searchResults" (click)="selectLocation(result)">
+      {{ result.display_name }}
+    </li>
+  </ul>
+</div>
+      </span>
+      <p-button
+        icon="fas fa-crosshairs"
+        (onClick)="useCurrentLocation()"
+        styleClass="p-button-rounded p-button-secondary custom-circle"
+        pTooltip="Use my location"
+      ></p-button>
+    </div>
+
+    <div class="alert-controls">
+      <button
+        pButton
+        icon="pi pi-plus"
+        label="Create Alert"
+        class="p-button-success"
+        (click)="startCreateAlert()"
+        *ngIf="!isCreatingAlert"
+      >
+      </button>
+      <p-button
+        label="Cancel"
+        icon="pi pi-times"
+        (onClick)="cancelCreateAlert()"
+        *ngIf="isCreatingAlert"
+        styleClass="p-button-danger"
+      ></p-button>
+    </div>
+  </div>
+
+  <div #mapContainer class="map-container"></div>
+
+
+  <div class="legend-panel">
+    <h3>Alert Types</h3>
+    <div class="legend-items">
+      <div class="legend-item" *ngFor="let item of legendItems">
+        <i [class]="item.icon" [style.color]="item.color"></i>
+        <span>{{item.label}}</span>
+      </div>
+    </div>
+  </div>
+</div>
