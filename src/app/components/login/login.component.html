@@ -1,0 +1,64 @@
+<div class="login-wrapper" [style.background-image]="'url(/assets/bg1.webp)'">
+  <div class="overlay"></div>
+  <div class="login-container">
+    <p-card styleClass="login-card">
+      <div class="text-center mb-5">
+        <p-avatar
+          [image]="'/assets/logo.webp'"
+          styleClass="mb-3"
+          size="xlarge"
+          shape="circle"
+        ></p-avatar>
+        <h2 class="title">
+          <span class="font-bold font-italic">Welcome</span>
+          <br> Back
+        </h2>
+      </div>
+
+      <p-message
+        *ngIf="errorMsg"
+        severity="error"
+        [text]="errorMsg"
+        styleClass="mb-4 w-full"
+      ></p-message>
+
+      <div class="field">
+        <span class="p-input-icon-left w-full">
+          <input
+            [(ngModel)]="authenticationRequest.username"
+            pInputText
+            placeholder="Email"
+            type="email"
+            class="w-full "
+          >
+        </span>
+      </div>
+
+      <div class="field mb-4">
+        <span class="p-input-icon-left w-full">
+          <input
+            [(ngModel)]="authenticationRequest.password"
+            pInputText
+            placeholder="Password"
+            type="password"
+            class="w-full"
+          >
+        </span>
+      </div>
+
+      <button
+        pButton
+        label="Sign In"
+        class="w-full p-3 mb-3 gradient-button"
+        (click)="login()"
+      ></button>
+
+      <button
+        pButton
+        label="Don't have an account? Sign up now"
+        class="w-full p-button-text"
+        (click)="register()"
+      ></button>
+    </p-card>
+  </div>
+</div>

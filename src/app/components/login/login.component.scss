@@ -1,0 +1,49 @@
+.login-wrapper {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+
+  .login-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 450px;
+    padding: 2rem;
+  }
+}
+
+:host ::ng-deep {
+  .login-card {
+    background: rgba(255, 255, 255, 0.85);  // Reduced opacity
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+    .p-card-content {
+      padding: 2rem;
+    }
+  }
+
+  .p-inputtext {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .gradient-button {
+    background: linear-gradient(to right, #d02fb5 0%, #3067e8 100%);
+    border: none;
+    border-radius: 8px;
+  }
+
+
+  .title {
+    font-size: 2rem;
+    color: #3e4555;
+    margin-bottom: 2rem;
+  }
+}
