@@ -54,7 +54,8 @@ Real-time: WebSocket/STOMP
 
 ## 📱 **Core Features Demo**
 
-Authentication
+#### Authentication
+
 `// Secure JWT authentication
 @Injectable()
 export class AuthService {
@@ -63,7 +64,8 @@ return this.http.post<AuthResponse>('/api/auth/login', credentials);
 }
 }`
 
-Location Tracking
+#### Location Tracking
+
 `// Real-time location updates
 @Injectable()
 export class LocationService {
@@ -78,7 +80,8 @@ err => observer.error(err),
 }
 }`
 
-🔧 Configuration
+#### 🔧 Configuration
+
 `// environment.ts
 export const environment = {
 production: false,
@@ -88,42 +91,44 @@ mapboxToken: 'your_token'
 };`
 
 ## 📦 **Available Scripts**
-# Development
+### Development
 ng serve
 
-# Production build
+##### Production build
 ng build --prod
 
-# Testing
+##### Testing
 ng test
 
-# Linting
+##### Linting
 ng lint
 
 🔒 **Security Features**
-* JWT Authentication
-* Role-based Access Control
-* WebSocket Security
-* XSS Protection
-* CSRF Guards
+[x] JWT Authentication
+[x] Role-based Access Control
+[x] WebSocket Security
+[x] XSS Protection
+[x] CSRF Guards
 
 🌟 **Performance**
-* Lazy Loading
-* Virtual Scrolling
-* Optimized WebSocket
-* Image Compression
-* Smart Caching
+[x] Lazy Loading
+[x] Optimized WebSocket
+[x] Image Compression
+[x] Smart Caching
 
 📚 **API Documentation**
-Authentication
-POST /api/auth/login
-POST /api/auth/register
-GET /api/auth/profile
 
-Alerts
-GET /api/alerts/nearby
-POST /api/alerts/create
-PUT /api/alerts/{id}/status
+### Authentication
+
+* POST /api/auth/login
+* POST /api/auth/register
+* GET /api/auth/profile
+
+#### Alerts
+
+* GET /api/alerts/nearby
+* POST /api/alerts/create
+* PUT /api/alerts/{id}/status
 
 🤝 **Contributing**
 Fork repository
