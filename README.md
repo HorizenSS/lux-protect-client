@@ -121,7 +121,7 @@ Implement changes
 Add tests
 Submit pull request
 
-📄 L**icense**
+📄 **License**
 MIT License - LICENSE.md
 
 🔗 **Links**
