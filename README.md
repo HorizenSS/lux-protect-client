@@ -1,27 +1,131 @@
-# Angular
+**LuxProtect Alert System** 🛡️
+A powerful real-time geolocation alert platform delivering instant notifications based on user proximity and location tracking.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
+✨ **Key Features**
+🗺️ Interactive Map Experience
+* Live alert visualization with custom markers
+* Real-time location tracking
+* Smart proximity filtering
+~~* Interactive radius selection~~
+~~* Custom geofencing zones~~
+⚡ Real-time Notifications
+* Instant WebSocket alerts
+~~* Priority-based notification system~~
+* Status tracking and updates
+~~* Rich notification history~~
+👥 User Management
+Role-based access (Admin/User)
+Secure authentication
+~~Profile customization~~
+~~Location history tracking~~
+🎯 Alert Management
+Location-based alert creation
+Priority levels
+~~Coverage radius control~~
+Status monitoring
+~~Historical data analysis~~
 
-## Development server
+🚀 Quick Start
+# Clone repository
+git clone https://github.com/HorizenSS/lux-protect-client.git
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Install dependencies
+npm install
 
-## Code scaffolding
+# Start development
+ng serve
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+🛠️ **Tech Stack**
+Frontend: Angular 15
+UI Components: PrimeNG
+Maps: Leaflet.js
+State Management: RxJS
+Real-time: WebSocket/STOMP
 
-## Build
+📱 **Core Features Demo**
+Authentication
+`// Secure JWT authentication
+@Injectable()
+export class AuthService {
+login(credentials: AuthRequest): Observable<AuthResponse> {
+return this.http.post<AuthResponse>('/api/auth/login', credentials);
+}
+}`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Location Tracking
+`// Real-time location updates
+@Injectable()
+export class LocationService {
+trackLocation(): Observable<Position> {
+return new Observable(observer => {
+navigator.geolocation.watchPosition(
+pos => observer.next(pos),
+err => observer.error(err),
+{ enableHighAccuracy: true }
+);
+});
+}
+}`
 
-## Running unit tests
+🔧 Configuration
+`// environment.ts
+export const environment = {
+production: false,
+apiUrl: 'http://localhost:8080',
+wsUrl: 'ws://localhost:8080/ws-alerts',
+mapboxToken: 'your_token'
+};`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+📦 **Available Scripts**
+# Development
+ng serve
 
-## Running end-to-end tests
+# Production build
+ng build --prod
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Testing
+ng test
 
-## Further help
+# Linting
+ng lint
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+🔒 **Security Features**
+* JWT Authentication
+* Role-based Access Control
+* WebSocket Security
+* XSS Protection
+* CSRF Guards
+
+🌟 **Performance**
+* Lazy Loading
+* Virtual Scrolling
+* Optimized WebSocket
+* Image Compression
+* Smart Caching
+
+📚 **API Documentation**
+Authentication
+POST /api/auth/login
+POST /api/auth/register
+GET /api/auth/profile
+
+Alerts
+GET /api/alerts/nearby
+POST /api/alerts/create
+PUT /api/alerts/{id}/status
+
+🤝 **Contributing**
+Fork repository
+Create feature branch
+Implement changes
+Add tests
+Submit pull request
+
+📄 L**icense**
+MIT License - LICENSE.md
+
+🔗 **Links**
+Documentation
+API Reference
+Deployment Guide
+Built with ❤️ by [Ines Akez]
