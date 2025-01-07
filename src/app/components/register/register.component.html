@@ -1,0 +1,108 @@
+<div class="flex" style="height: 100vh">
+  <div class="col-6 m-3 flex flex-column justify-content-center">
+    <div class="m-auto">
+      <div class="text-center">
+        <p-avatar
+          [image]="'/assets/logo.webp'"
+          styleClass="mr-2"
+          size="xlarge"
+          shape="circle"
+        ></p-avatar>
+        <h1>Register for an account</h1>
+      </div>
+      <p-message
+        *ngIf="errorMsg"
+        severity="error"
+        [text]="errorMsg"
+        styleClass="mb-2 w-full"
+      ></p-message>
+      <div class="field mb-4">
+        <label for="name" class="block mb-1">Name</label>
+        <span class="p-input-icon-left w-full">
+          <input
+            [(ngModel)]="customer.name"
+            id="name"
+            pInputText
+            placeholder="Jane"
+            type="text"
+            class="w-full"
+          >
+        </span>
+      </div>
+
+      <div class="field mb-4">
+        <label for="email" class="block mb-1">Email</label>
+        <span class="p-input-icon-left w-full">
+          <input
+            [(ngModel)]="customer.email"
+            id="email"
+            pInputText
+            placeholder="Jane@amigoscode.com"
+            type="email"
+            class="w-full"
+          >
+        </span>
+      </div>
+
+      <div class="field mb-4">
+        <label for="age" class="block mb-1">Age</label>
+        <span class="p-input-icon-left w-full">
+          <input
+            [(ngModel)]="customer.age"
+            id="age"
+            pInputText
+            placeholder="34"
+            type="number"
+            class="w-full"
+          >
+        </span>
+      </div>
+
+      <div class="field mb-4">
+        <label for="password" class="block mb-1">Password</label>
+        <span class="p-input-icon-left w-full">
+          <input
+            [(ngModel)]="customer.password"
+            id="password"
+            pInputText
+            placeholder="Password"
+            type="password"
+            class="w-full"
+          >
+        </span>
+      </div>
+
+      <div class="field mb-4">
+        <label for="gender" class="block mb-1">Gender</label>
+        <select
+          [(ngModel)]="customer.gender"
+          class="p-dropdown w-full custom-select"
+          id="gender"
+        >
+          <option value="">Select an option</option>
+          <option value="MALE">MALE</option>
+          <option value="FEMALE">FEMALE</option>
+        </select>
+      </div>
+
+      <button
+        (click)="createAccount()"
+        pButton
+        label="Create an account"
+        class="w-full p-3 mb-3 gradient-button"
+      ></button>
+      <button
+        (click)="login()"
+        pButton
+        label="Have an account? Login now."
+        class="w-full p-button-link text-left pl-0"
+      ></button>
+    </div>
+  </div>
+  <div class="col-6 flex flex-column justify-content-center align-items-center right-container">
+    <img
+      class="background p-6 pt-0"
+      src="/assets/lux_protect.png"
+    >
+  </div>
+</div>

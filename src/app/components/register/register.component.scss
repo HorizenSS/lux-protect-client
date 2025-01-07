@@ -1,0 +1,22 @@
+.right-container {
+  background-image: linear-gradient(to right, #2b6cb0, #6b46c1);
+  .background {
+    object-fit: fill;
+    height: auto;
+    max-width: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.custom-select {
+  padding: 0.75rem 0.75rem;
+  border: 1px solid #ced4da;
+}
+.gradient-button {
+  background: linear-gradient(to right, #d02fb5 0%, #3067e8 100%);
+  border: none;
+  border-radius: 8px;
+}
