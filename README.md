@@ -9,39 +9,39 @@ A powerful real-time geolocation alert platform delivering instant notifications
 * Live alert visualization with custom markers
 * Real-time location tracking
 * Smart proximity filtering
-~~* Interactive radius selection~~
-~~* Custom geofencing zones~~
+* ~~* Interactive radius selection~~
+* ~~* Custom geofencing zones~~
 
 ### ⚡ Real-time Notifications
 
 * Instant WebSocket alerts
-~~* Priority-based notification system~~
+* ~~* Priority-based notification system~~
 * Status tracking and updates
-~~* Rich notification history~~
+* ~~* Rich notification history~~
 
 ### 👥 User Management
 
-Role-based access (Admin/User)
-Secure authentication
-~~Profile customization~~
-~~Location history tracking~~
+* Role-based access (Admin/User)
+* Secure authentication
+* ~~Profile customization~~
+* ~~Location history tracking~~
 
 ### 🎯 Alert Management
 
-Location-based alert creation
-Priority levels
-~~Coverage radius control~~
-Status monitoring
-~~Historical data analysis~~
+* Location-based alert creation
+* Priority levels
+* ~~Coverage radius control~~
+* Status monitoring
+* ~~Historical data analysis~~
 
 ## 🚀 Quick Start
-# Clone repository
+#### Clone repository
 git clone https://github.com/HorizenSS/lux-protect-client.git
 
-# Install dependencies
+#### Install dependencies
 npm install
 
-# Start development
+#### Start development
 ng serve
 
 ## 🛠️ **Tech Stack**
@@ -131,17 +131,17 @@ ng lint
 * PUT /api/alerts/{id}/status
 
 🤝 **Contributing**
-Fork repository
-Create feature branch
-Implement changes
-Add tests
-Submit pull request
+* Fork repository
+* Create feature branch
+* Implement changes
+* Add tests
+* Submit pull request
 
 📄 **License**
-MIT License - LICENSE.md
+* MIT License - LICENSE.md
 
 🔗 **Links**
-Documentation
-API Reference
-Deployment Guide
-Built with ❤️ by [Ines Akez]
+* Documentation
+* API Reference
+* Deployment Guide
+* Built with ❤️ by [Ines Akez]
