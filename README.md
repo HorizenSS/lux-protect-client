@@ -1,31 +1,40 @@
-**LuxProtect Alert System** 🛡️
+# **LuxProtect Alert System** 🛡️
+
 A powerful real-time geolocation alert platform delivering instant notifications based on user proximity and location tracking.
 
-✨ **Key Features**
-🗺️ Interactive Map Experience
+## ✨ **Key Features**
+
+### 🗺️ Interactive Map Experience
+
 * Live alert visualization with custom markers
 * Real-time location tracking
 * Smart proximity filtering
 ~~* Interactive radius selection~~
 ~~* Custom geofencing zones~~
-⚡ Real-time Notifications
+
+### ⚡ Real-time Notifications
+
 * Instant WebSocket alerts
 ~~* Priority-based notification system~~
 * Status tracking and updates
 ~~* Rich notification history~~
-👥 User Management
+
+### 👥 User Management
+
 Role-based access (Admin/User)
 Secure authentication
 ~~Profile customization~~
 ~~Location history tracking~~
-🎯 Alert Management
+
+### 🎯 Alert Management
+
 Location-based alert creation
 Priority levels
 ~~Coverage radius control~~
 Status monitoring
 ~~Historical data analysis~~
 
-🚀 Quick Start
+## 🚀 Quick Start
 # Clone repository
 git clone https://github.com/HorizenSS/lux-protect-client.git
 
@@ -35,14 +44,16 @@ npm install
 # Start development
 ng serve
 
-🛠️ **Tech Stack**
+## 🛠️ **Tech Stack**
+
 Frontend: Angular 15
 UI Components: PrimeNG
 Maps: Leaflet.js
 State Management: RxJS
 Real-time: WebSocket/STOMP
 
-📱 **Core Features Demo**
+## 📱 **Core Features Demo**
+
 Authentication
 `// Secure JWT authentication
 @Injectable()
@@ -76,7 +87,7 @@ wsUrl: 'ws://localhost:8080/ws-alerts',
 mapboxToken: 'your_token'
 };`
 
-📦 **Available Scripts**
+## 📦 **Available Scripts**
 # Development
 ng serve
 
