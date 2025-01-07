@@ -92,33 +92,33 @@ mapboxToken: 'your_token'
 
 ## 📦 **Available Scripts**
 ### Development
-ng serve
+`ng serve`
 
 ##### Production build
-ng build --prod
+`ng build --prod`
 
 ##### Testing
-ng test
+`ng test`
 
 ##### Linting
-ng lint
+`ng lint`
 
 🔒 **Security Features**
-[x] JWT Authentication
-[x] Role-based Access Control
-[x] WebSocket Security
-[x] XSS Protection
-[x] CSRF Guards
+* JWT Authentication
+* Role-based Access Control
+* WebSocket Security
+* XSS Protection
+* CSRF Guards
 
 🌟 **Performance**
-[x] Lazy Loading
-[x] Optimized WebSocket
-[x] Image Compression
-[x] Smart Caching
+* Lazy Loading
+* Optimized WebSocket
+* Image Compression
+* Smart Caching
 
-📚 **API Documentation**
+## 📚 **API Documentation**
 
-### Authentication
+##### Authentication
 
 * POST /api/auth/login
 * POST /api/auth/register
@@ -130,7 +130,7 @@ ng lint
 * POST /api/alerts/create
 * PUT /api/alerts/{id}/status
 
-🤝 **Contributing**
+## 🤝 **Contributing**
 * Fork repository
 * Create feature branch
 * Implement changes
