@@ -44,6 +44,16 @@ npm install
 #### Start development
 ng serve
 
+## Project Structure
+src/
+├── app/
+│   ├── components/      # Reusable UI components
+│   ├── services/        # Business logic and API calls
+│   ├── models/          # TypeScript interfaces and types
+│   └── shared/          # Shared utilities and constants
+├── assets/             # Static files
+└── environments/       # Environment configurations
+
 ## 🛠️ **Tech Stack**
 * Frontend: Angular 15
 * UI Components: PrimeNG
