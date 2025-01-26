@@ -8,6 +8,17 @@
   (click)="toggleSidebar()"
   *ngIf="isCreatingAlert || isEditing"
 ></button>
+<p-toast key="nearbyAlert" position="top-right">
+  <ng-template let-message pTemplate="message">
+    <div class="nearby-alert" (click)="onNearbyAlertClick(message.data)">
+      <div class="flex flex-column">
+        <div class="font-bold">{{message.summary}}</div>
+        <div>{{message.detail}}</div>
+        <div class="text-sm">Click to view on map</div>
+      </div>
+    </div>
+  </ng-template>
+</p-toast>
 
 <p-sidebar
   [(visible)]="display"

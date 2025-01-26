@@ -12,6 +12,7 @@ export class WebSocketService {
   private rxStomp: RxStomp;
   private currentLocation$ = new BehaviorSubject<L.LatLng | null>(null);
   private userId: number | null = null;
+  private username: string | null = null;
 
   constructor() {
     this.rxStomp = new RxStomp();
@@ -25,6 +26,7 @@ export class WebSocketService {
     const userData = JSON.parse(userStr);
     const token = userData.token;
     this.userId = userData.customerDTO.id;
+    this.username = userData.customerDTO.email;
 
     this.rxStomp.configure({
       brokerURL: 'ws://localhost:8080/ws-alerts',
@@ -47,7 +49,7 @@ export class WebSocketService {
     this.userId = userData.customerDTO.id;
     this.currentLocation$.next(location);
     this.rxStomp.publish({
-      destination: `/app/location/${this.userId}`,
+      destination: `/app/location/${this.username}`,
       body: JSON.stringify({
         latitude: location.lat,
         longitude: location.lng
@@ -57,7 +59,7 @@ export class WebSocketService {
 
   subscribeToNearbyAlerts(): Observable<AlertResponseDto> {
     console.log('Subscribing to nearby alerts');
-    return this.rxStomp.watch('/topic/nearby-alerts').pipe(
+    return this.rxStomp.watch(`/topic/nearby-alerts/${this.username}`).pipe(
       tap(message => console.log('Received alert:', message.body)),
       map(message => JSON.parse(message.body))
     );

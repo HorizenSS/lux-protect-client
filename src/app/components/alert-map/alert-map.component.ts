@@ -73,25 +73,37 @@ export class AlertMapComponent implements OnInit ,OnDestroy {
     ).subscribe({
       next: (alert) => {
         this.messageService.add({
+          key: 'nearbyAlert',
           severity: 'info',
           summary: 'New Nearby Alert',
-          detail: alert.title
+          detail: alert.title,
+          data: alert,  // Pass the full alert object
+          life: 10000,
+          styleClass: 'nearby-alert-toast'
         });
-        this.loadAlerts(); // Refresh alerts on map
+        this.loadAlerts();
       },
       error: (error) => console.log('WebSocket error:', error)
     });
 
+
     this.subscriptions.add(alertSubscription);
     this.getUserLocation();
   }
+  // Add this method to your component
+  onNearbyAlertClick(alert: AlertResponseDto) {
+    this.selectedAlert = alert;
+    this.display = true;
+    this.map.setView([alert.latitude, alert.longitude], 15);
+  }
+
   ngAfterViewInit() {
     this.initializeMap();
     this.loadAlerts();
   }
   alertTypeDropdownItems = Object.values(AlertType).map(type => ({
-    label: type,  // Displayed label
-    value: type   // Actual value
+    label: type,
+    value: type
   }));
   // Update the alertTypeOptions initialization
   alertTypeOptions = this.generateAlertTypeOptions();
